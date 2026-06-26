@@ -5,8 +5,8 @@ C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\
 C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\SGE.Dominio.AssemblyInfoInputs.cache
 C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\SGE.Dominio.AssemblyInfo.cs
 C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\SGE.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\SGE.Dominio.sourcelink.json
 C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\SGE.Dominio.dll
 C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\refint\SGE.Dominio.dll
 C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\SGE.Dominio.pdb
 C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\ref\SGE.Dominio.dll
-C:\Users\valen\OneDrive\Escritorio\Facultad\2026\.NET\SGE\SGE.Dominio\obj\Debug\net10.0\SGE.Dominio.sourcelink.json

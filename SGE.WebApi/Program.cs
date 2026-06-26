@@ -4,12 +4,13 @@ using SGE.Aplicacion.Autorizacion;
 using SGE.Aplicacion.Interfaces;
 using SGE.Aplicacion.Expedientes;
 using SGE.Aplicacion.Tramites;
+using SGE.Aplicacion.Usuarios;
 using SGE.Infraestructura.Persistencia.Sqlite;
 using SGE.Infraestructura.Servicios;
 using SGE.WebApi.Endpoints;
 using SGE.WebApi.Middlewares;
 using SGE.WebApi.Services;
-using Scalar.AspNetCore; 
+using Scalar.AspNetCore;
 using System.Text;
 using SGE.Aplicacion.Fecha;
 
@@ -37,18 +38,26 @@ builder.Services.AddSingleton<ITokenService, TokenService>();
 // Servicio interno requerido por los Casos de Uso de Trámites
 builder.Services.AddScoped<ActualizacionEstadoExpedienteService>();
 
-// Casos de Uso Tramites
+// Casos de Uso de Trámites
 builder.Services.AddScoped<AltaTramiteUseCase>();
 builder.Services.AddScoped<BajaTramiteUseCase>();
 builder.Services.AddScoped<ModificarTramiteUseCase>();
 builder.Services.AddScoped<ListarTramitesPorExpedienteUseCase>();
 
-// Casos de Uso Expedientes
+// Casos de Uso de Expedientes
 builder.Services.AddScoped<AltaExpedienteUseCase>();
 builder.Services.AddScoped<BajaExpedienteUseCase>();
 builder.Services.AddScoped<ModificarCaratulaExpedienteUseCase>();
 builder.Services.AddScoped<CambiarEstadoExpedienteUseCase>();
 builder.Services.AddScoped<ListarExpedientesUseCase>();
+
+// Casos de Uso de Usuarios
+builder.Services.AddScoped<RegistrarUsuarioUseCase>();
+builder.Services.AddScoped<LoginUseCase>();
+builder.Services.AddScoped<ModificarMisDatosUseCase>();
+builder.Services.AddScoped<ListarUsuariosUseCase>();
+builder.Services.AddScoped<EliminarUsuarioUseCase>();
+builder.Services.AddScoped<ModificarPermisosUsuarioUseCase>();
 
 // Middleware del Manejador de Excepciones Global (ProblemDetails)
 builder.Services.AddExceptionHandler<ManejadorExcepciones>();
@@ -66,13 +75,13 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false; 
+    options.RequireHttpsMetadata = false;
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = false, 
+        ValidateIssuer = false,
         ValidateAudience = false,
         ValidateLifetime = true, // Validación estricta del tiempo de expiración
         ClockSkew = TimeSpan.Zero
@@ -91,7 +100,7 @@ var app = builder.Build();
 // ==========================================
 using (var scope = app.Services.CreateScope())
 {
-    // Provocamos la instanciación inicial para que corra tu constructor y el journal_mode=DELETE
+    // Provocamos la instanciación inicial para que corra el constructor con EnsureCreated y journal_mode=DELETE
     var context = scope.ServiceProvider.GetRequiredService<SgeContext>();
 }
 

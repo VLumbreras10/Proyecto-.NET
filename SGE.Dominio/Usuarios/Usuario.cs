@@ -63,7 +63,7 @@ public class Usuario
         }
     }
 
-    // Validación de Invariantes (Todos los datos son obligatorios)
+    // Validación de Campos (Todos los datos son obligatorios)
     private static void Validar(string nombre, string correoElectronico, string contrasenaHash)
     {
         if (string.IsNullOrWhiteSpace(nombre))

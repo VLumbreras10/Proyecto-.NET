@@ -35,7 +35,7 @@ public class SgeContext : DbContext
             .OnDelete(DeleteBehavior.Cascade); // Si se elimina un usuario, se borran sus permisos en cascada
 
         // --- 4.2 DATOS SEMILLA (SEED) ---
-        // Generamos IDs fijos (Guids) para las entidades semilla para evitar duplicados en migraciones
+        // Generamos IDs fijos (Guids) para las entidades semilla para evitar duplicados
         var adminId = Guid.Parse("11111111-1111-1111-1111-111111111111");
         var juanId = Guid.Parse("22222222-2222-2222-2222-222222222222");
         var pedroId = Guid.Parse("33333333-3333-3333-3333-333333333333");
@@ -47,7 +47,7 @@ public class SgeContext : DbContext
             Nombre = "Administrador del Sistema",
             CorreoElectronico = "admin@sge.com",
             // Hash hexadecimal precalculado de "admin123" usando SHA-256
-            ContrasenaHash = "240EE908DE03D8ED6014D23B40CCF164C59A41C765C9D91D0E44E72592ED5AA3",
+            ContrasenaHash = "240BE518FABD2724DDB6F04EEB1DA5967448D7E831C08C8FA822809F74C720A9",
             EsAdministrador = true
         });
 
@@ -58,7 +58,7 @@ public class SgeContext : DbContext
             Nombre = "Juan Operador",
             CorreoElectronico = "juan@sge.com",
             // Hash de "user123"
-            ContrasenaHash = "67AA2A6E941E66BEE4A30B746CD6E8913BEBEFE45E20340A7C31CE2B4E91EEA5",
+            ContrasenaHash = "E606E38B0D8C19B24CF0EE3808183162EA7CD63FF7912DBB22B5E803286B4446",
             EsAdministrador = false
         });
 
@@ -75,7 +75,7 @@ public class SgeContext : DbContext
             Nombre = "Pedro Invitado",
             CorreoElectronico = "pedro@sge.com",
             // Hash de "invitado123"
-            ContrasenaHash = "8A9E5325DCDE5E852DA1CBFA967C3B7AE5EDF2B4B27B55BE140CB1CC527F3F19",
+            ContrasenaHash = "002A8C8F252B5071EA88AC6A33F028236739B9A1C583DCF13D9D01657C178F4C",
             EsAdministrador = false
         });
     }
