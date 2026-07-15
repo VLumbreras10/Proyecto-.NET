@@ -18,6 +18,7 @@ public class EliminarUsuarioUseCase(IUsuarioRepository repo, IUnidadDeTrabajo uo
         var usuarioAEliminar = repo.ObtenerPorId(request.UsuarioAEliminarId);
         if (usuarioAEliminar == null)
             throw new Exception("El usuario a eliminar no existe.");
+            //Modificar a AutorizacionException("El usuario a eliminar no existe.");
 
         repo.Eliminar(request.UsuarioAEliminarId);
         

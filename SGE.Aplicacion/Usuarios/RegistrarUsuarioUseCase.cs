@@ -12,6 +12,7 @@ public class RegistrarUsuarioUseCase(IUsuarioRepository repo, IPasswordHasher ha
         var usuarioExistente = repo.ObtenerPorCorreo(request.CorreoElectronico);
         if (usuarioExistente != null)
             throw new Exception("El correo electrónico ya se encuentra registrado.");
+            //aca deberia ser AutorizacionException("El correo electrónico ya se encuentra registrado.");
 
         // Cifrado obligatorio de contraseña mediante hash
         string hash = hasher.CalcularHash(request.Contrasena);

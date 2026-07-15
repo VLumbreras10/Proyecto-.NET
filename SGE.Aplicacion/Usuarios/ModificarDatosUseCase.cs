@@ -12,6 +12,7 @@ public class ModificarMisDatosUseCase(IUsuarioRepository repo, IPasswordHasher h
         // REGLA DE CONTROL: El UserId extraído del token debe coincidir obligatoriamente (Requisito 3.2)
         if (usuarioLogueadoId != request.UsuarioId)
             throw new Exception("Acceso denegado: No tenés permisos para modificar los datos de otro usuario.");
+            //Modificar a AutorizacionException("Acceso denegado: No tenés permisos para modificar los datos de otro usuario.");
 
         var usuario = repo.ObtenerPorId(request.UsuarioId)
             ?? throw new Exception("Usuario no encontrado.");

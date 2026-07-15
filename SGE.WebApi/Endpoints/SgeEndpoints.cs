@@ -17,6 +17,17 @@ public static class SgeEndpoints
 {
     public static void MapSgeEndpoints(this IEndpointRouteBuilder app)
     {
+
+        /*
+        //Se refiere a esto con la observacion del login?
+        authGrupo.MapPost("/login", (LoginApiInput request, LoginUseCase usoDeCaso) => 
+        {
+            var response = usoDeCaso.Ejecutar(new LoginRequest(request.CorreoElectronico, request.Contrasena));
+            return Results.Ok(response);
+        });
+        */
+
+
         // ==========================================
         // GRUPO: AUTENTICACIÓN
         // ==========================================
@@ -152,6 +163,18 @@ public static class SgeEndpoints
 
             return Results.NoContent();
         });
+
+        //El metodo de arriba expedientesGrupo.MapPut valida dos casos de uso por separado, por ende debemos unificarlos
+        //Es decir, el endpoint o el caso de uso deberia de recibir ambos datos en un solo llamado y con eso lo guarda, por ende:
+        /*
+        expedientesGrupo.MapPut("/{id:guid}", (Guid id, ModificarExpedienteApiInput apiRequest, ModificarExpedienteUseCase usoDeCaso, ClaimsPrincipal user) =>
+        {
+            var usuarioId = ObtenerUsuarioId(user);
+            var request = new ModificarExpedienteRequest(id, apiRequest.Caratula, apiRequest.Estado, usuarioId);
+            usoDeCaso.Ejecutar(request); // Este Caso de Uso hace todo y guarda una sola vez
+            return Results.NoContent();
+        });
+        */
 
         // Baja de Expediente
         expedientesGrupo.MapDelete("/{id:guid}", (

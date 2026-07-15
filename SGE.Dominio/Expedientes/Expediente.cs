@@ -14,6 +14,7 @@ public class Expediente
     public Guid UsuarioUltimoCambio { get; private set; } 
     public EstadoExpediente Estado { get; private set; }
 
+
     private Expediente() 
     {
         // Constructor vacío para que la persistencia arme el objeto
